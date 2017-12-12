@@ -146,10 +146,6 @@ padding: 3px 8px;
 .skill-level label{
   text-transform: uppercase;
 }
-.language-level{
-  padding: 50px 0;
-  text-align: center;
-}
 .hob-container h2{
   margin-top: 43px;
 }
@@ -191,3 +187,4 @@ a:active {color:yellow;} /*点击时的颜色*/
 td{
   text-align: center;
 }
+.margin{margin-left: 20px;}
