@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2017-12-13-02</title>
+  <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prettify.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <h2 class="lone-header">输出文章对应主题</h2>
+      </div>
+    </header>
+
+
+    <section>
+      <div class="container">
+        <div class="docs-content">
+          <h3 id="welcome"> 主要内容</h3>
+          <p>任务要求：</p>
+          <p>
+            <h4>利用LDA算法对文章进行训练，输出每篇文章对应的主题,主题个数定为10，主题包含的词汇个数为6。
+            </h4>
+          </p>
+          <p>
+                提示：
+                关于lda的使用：
+          </p>
+
+          <h3 id="view_type">1.关于词频矩阵的获取：</h3>
+          <pre class="prettyprint">
+                将每篇文章变为一行，利用jieba进行分词
+                import jieba#通过pip安装
+                seglist=jieba.cut(line,cut_all=False)#得到每篇文章的分词
+                注：得到分完词的列表，分词过程中可以进行去停用词操作。（自己构造停用词，将seglist列表中的停用词去掉）这样效果更好
+          </pre>
+
+          <h3 id="view_type">2.</h3>
+          <pre class="prettyprint">
+                输入分词矩阵corpus，主题个数total_topic，迭代次数n_iter                
+          </pre>
+          <p>例 两篇文章分词后的corpus形式可为：</p>
+          <p>[['你好'，'我的'],['豆腐机','方法']]</p>
+          <p>['你好'，'我的']表示第一篇文章分词后的词汇，当然只是举例子，所以词汇比较少！！</p>
+          <h3 id="view_type">然后经由下面这段代码训练：</h3>
+          <pre class="prettyprint">
+                from sklearn.feature_extraction.text import CountVectorizer
+                vectorizer = CountVectorizer()
+                X = vectorizer.fit_transform(corpus)
+                word = vectorizer.get_feature_names()
+                weight = X.toarray()
+                model = lda.LDA(n_topics=total_topic, n_iter=iter_num, random_state=1)
+                model.fit(np.asarray(weight)) 
+          </pre>
+          <h3 id="view_type">输出主题-词汇概率矩阵和文档主题概率矩阵：</h3>
+          <pre class="prettyprint">
+                topic_word = model.topic_word_ 
+                doc_topic = model.doc_topic_
+          </pre>
+          <h4>注：（主题-词汇概率矩阵为每个主题对应于每个单词的概率，文档主题概率矩阵为每篇文章对应于每个主题的概率）,利用这俩个矩阵求出最终每篇文章对应的主题</h4>
+        </div>
+    </section>
+
+    <footer>
+      <div class="">
+        <p> &copy;LSGO学习信息发布平台</p>
+      </div>
+    </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/prettify/prettify.js"></script>
+    <script src="https://cdn.bootcss.com/prettify/r298/run_prettify.js"></script>
+    <script src="js/layout.js"></script>
+</body>
+
+</html>

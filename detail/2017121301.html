@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2017-12-13-01</title>
+  <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prettify.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <h2 class="lone-header">关于癌症的预测问题</h2>
+      </div>
+    </header>
+
+
+    <section>
+      <div class="container">
+        <div class="docs-content">
+          <h3 id="welcome"> 主要内容</h3>
+          <p>任务要求：</p>
+          <p>
+            <h4>利用交叉验证(下面有提示)对于数据进行多次训练，输出最高的预测率及对应的预测结果。</h4>
+          </p>
+          <p>
+             提示：由于了解到大家对于机器学习的方法还没有学习，所有此处给大家提供一个模块，大家只需要调用相应的函数进行训练和预测就行。
+          </p>
+
+          <h3 id="view_type">1.调用sklearn的svm模块中的函数</h3>
+          <pre class="prettyprint">
+                from sklearn.svm import SVC, LinearSVC#没有这个模块的话pip安装
+              
+                clf= SVC(A=1,kernel='rbf', degree=3, gamma='auto', coef0=0.0)#初始化，参数可以不用修改，也可以修改调效果
+              
+                clf.fit(x_tain, y_train) #训练函数，参数含义：训练的特征集和训练的特征集的类别标签
+              
+                y_pre = clf.predict(x_test)#预测函数，参数含义：测试的特征集，输出预测出的类别标签
+          </pre>
+
+          <h3 id="view_type">2.交叉验证</h3>
+          <pre class="prettyprint">
+              每次选取数据集中百分之90作为训练样本，百分之10作为测试样本，进行多次训练。
+          </pre>
+          <h3>3.数据集</h3>
+          <p>数据集请见百度云网盘：<a href="https://pan.baidu.com/s/1o83MLey" target="_blank">breast_cancer.xlsx</a></p>
+          <p>数据集说明：</p>
+          <ul>
+            <li>最后一列为类别标签，1表示没得癌症，-1表示得了癌症</li>
+            <li>其他列均为特征。</li>
+          </ul>
+        </div>
+    </section>
+
+    <footer>
+      <div class="">
+        <p> &copy;LSGO学习信息发布平台</p>
+      </div>
+    </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/prettify/prettify.js"></script>
+    <script src="https://cdn.bootcss.com/prettify/r298/run_prettify.js"></script>
+    <script src="js/layout.js"></script>
+</body>
+
+</html>
