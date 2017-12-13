@@ -52,7 +52,7 @@
           <p>例 两篇文章分词后的corpus形式可为：</p>
           <p>[['你好'，'我的'],['豆腐机','方法']]</p>
           <p>['你好'，'我的']表示第一篇文章分词后的词汇，当然只是举例子，所以词汇比较少！！</p>
-          <h3 id="view_type">然后经由下面这段代码训练：</h3>
+          <h3 id="view_type">3.然后经由下面这段代码训练：</h3>
           <pre class="prettyprint">
                 from sklearn.feature_extraction.text import CountVectorizer
                 vectorizer = CountVectorizer()
@@ -62,12 +62,20 @@
                 model = lda.LDA(n_topics=total_topic, n_iter=iter_num, random_state=1)
                 model.fit(np.asarray(weight)) 
           </pre>
-          <h3 id="view_type">输出主题-词汇概率矩阵和文档主题概率矩阵：</h3>
+          <h3 id="view_type">4.输出主题-词汇概率矩阵和文档主题概率矩阵：</h3>
           <pre class="prettyprint">
                 topic_word = model.topic_word_ 
                 doc_topic = model.doc_topic_
           </pre>
           <h4>注：（主题-词汇概率矩阵为每个主题对应于每个单词的概率，文档主题概率矩阵为每篇文章对应于每个主题的概率）,利用这俩个矩阵求出最终每篇文章对应的主题</h4>
+        
+          <h3>3.数据集</h3>
+          <p>数据集请见百度云网盘：<a href="https://pan.baidu.com/s/1nvR5teL" target="_blank">任务2数据</a></p>
+          <p>数据集说明：</p>
+          <ul>
+            <li>关于马克思的100篇文章</li>
+          </ul>
+          <h2>不会做？<a href="https://www.baidu.com/" target="_blank">点我</a></h2>
         </div>
     </section>
 
