@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2017-12-14-01</title>
+  <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prettify.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <h2 class="lone-header">字符串操作 C# & Python</h2>
+      </div>
+    </header>
+
+
+    <section>
+      <div class="container">
+        <div class="docs-content">
+          <h3 id="welcome"> 主要内容</h3>
+          <p>任务要求：</p>
+          <p>
+            <h4>学习字符串以及文件操作，完成特定文件读取，写入，运用表达式进行匹配
+            </h4>
+          </p>
+          <p>
+                提示：
+                <a href="http://www.runoob.com/regexp/regexp-syntax.html" target="_blank">正则表达式点这里</a>
+                <a href="http://www.runoob.com/xpath/xpath-tutorial.html" target="_blank">xpath表达式点这里</a>
+          </p>
+
+          <h3 id="view_type">1.此次学习主要内容</h3>
+          <ul>
+              <li>文件的读取和写入（这里Python在windows上也许会存在编码的问题）</li>
+              <li>字符串的操作，给定一串字符串，在一个txt文档中，读取字符串以后，使用正则表达式进行匹配</li>
+              <li>在匹配到的文本中进行简单的词频统计</li>
+              <li>喜欢爬虫的同学可以看看xpath，个人兴趣不做要求</li>
+              <li>C#的同学有兴趣还可以写成窗体。窗体可以用winform，也可以用WPF以及UWP等</li>
+          </ul>
+
+          <h3 id="view_type">2.一些提示</h3>
+         <ul>
+             <li>文件读取就没什么说的了，比较简单</li>
+             <li>正则表达式在C#和Python中都有相应的模块，我们只需要写好表达式，学会去使用就行</li>
+             <li>文本匹配有很多算法，有兴趣的同学可以研究。最简单的有暴力匹配，百度上有很多介绍（其实两个循环就完了）</li>
+         </ul>
+         <h3 id="view_type">3.数据说明以及匹配要求</h3>
+         <ul>
+             <li>数据截取的是新浪新闻关于公祭日的
+                 <a href="http://news.sina.com.cn/gov/xlxw/2017-12-14/doc-ifypsqiz6677928.shtml">新闻</a>
+                （新闻源代码已经在百度云给出）
+                </li>
+             <li>使用正则表达式匹配出新闻标题（h1标签内），时间（2017年12月14日 10:21），以及新闻内容（p标签内就行）</li>
+             <pre class="prettyprint">
+                 比如时间的匹配正则表达式为：\d{4}年\d{1,2}月\d{1,2}日\d{2}:\d{2}
+             </pre>
+             <li>对匹配到的新闻信息进行词频统计，需要统计的词语为
+                 <ul>
+                     <li>公祭</li>
+                     <li>中国共产党</li>
+                     <li>抗日</li>
+                 </ul>
+             </li>
+             <li>将匹配出来的新闻以及词频写到新txt文件中</li>
+         </ul>
+          <h3>4.数据集</h3>
+          <p>数据请见百度云网盘：<a href="https://pan.baidu.com/s/1eStTIzo" target="_blank">文本</a></p>
+          <h2>不会做？<a href="https://www.baidu.com/" target="_blank">点我</a></h2>
+        </div>
+    </section>
+
+    <footer>
+      <div class="">
+        <p> &copy;LSGO学习信息发布平台</p>
+      </div>
+    </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/prettify/prettify.js"></script>
+    <script src="https://cdn.bootcss.com/prettify/r298/run_prettify.js"></script>
+    <script src="js/layout.js"></script>
+</body>
+
+</html>
