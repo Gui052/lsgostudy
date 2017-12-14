@@ -72,6 +72,17 @@
              </li>
              <li>将匹配出来的新闻以及词频写到新txt文件中</li>
          </ul>
+         <p>C#正则表达式</p>
+         <pre class="prettyprint">
+           using System.Text.RegularExpressions;//需要添加引用
+           Regex re = new Regex(@"var game=Array(.*)[^(var)]");
+           string asd = re.Match(BaseResultHtml).ToString();
+         </pre>
+         <p>Python使用正则表达式</p>
+         <pre class="prettyprint">
+           import re
+           text=re.findall('表达式')
+         </pre>
           <h3>4.数据集</h3>
           <p>数据请见百度云网盘：<a href="https://pan.baidu.com/s/1eStTIzo" target="_blank">文本</a></p>
           <h2>不会做？<a href="https://www.baidu.com/" target="_blank">点我</a></h2>
