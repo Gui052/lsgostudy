@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2017-12-25-02</title>
+    <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/markdown.css">
+    <link rel="stylesheet" href="css/prettify.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <h2 class="lone-header">生成各种条形码</h2>
+            </div>
+        </header>
+
+
+        <section>
+            <div class="docs-content">
+                <h2>
+                    生成各种条形码
+                </h2>
+                <img height="300" src="image/201712250101.jpg" width="450" />
+                <h3>
+                    1.使用C#编程，设计窗体。需要实现的功能：
+                </h3>
+                <ul>
+                    <li>
+                        一个下拉列表，实现编码类型的选择。
+                    </li>
+                    <li>
+                        一个要编码的文本框以及两个按钮，实现开始生成以及生成后的图片保存。
+                    </li>
+                    <li>
+                        需要展示生成的条形码
+                    </li>
+                </ul>
+                <h3 id="2">
+                    2.关于一些函数以及用法：
+                </h3>
+                <ul>
+                    <li>
+                        需要引用
+                        <code>
+                  BarcodeLib
+                 </code> 。可以通过vs的
+                        <code>
+                  工具
+                 </code> -&gt;
+                        <code>
+                  Nuget包管理器
+                 </code> -&gt;
+                        <code>
+                  管理解决方案的NuGet程序包
+                 </code> -&gt;
+                        <code>
+                  浏览
+                 </code> ，搜索，然后在右边框框打钩，点击安装即可
+                    </li>
+                    <li>
+                        添加
+                        <code>
+                  using BarcodeLib
+                 </code>
+                    </li>
+                    <li>
+                        声明一个Barcode类型的变量，并且进行一些初始化设置
+                        <blockquote>
+                            <p>
+                                1.背景颜色
+                                <br/> 2.前景颜色
+                                <br/> 3.是否包含标签
+                                <br/> 4.设置图片格式
+                                <br/> 5.高度
+                                <br/> 6.宽度
+                            </p>
+                        </blockquote>
+                    </li>
+                    <li>
+                        <p>
+                            可选项
+                        </p>
+                        <blockquote>
+                            <p>
+                                1.设置标签字体
+                                <br/> 2.设置标签对齐方式
+                            </p>
+                        </blockquote>
+                    </li>
+                    <li>
+                        <p>
+                            使用
+                            <code>
+                   Encode(type,code)
+                  </code> 方法进行编码，返回的是
+                            <code>
+                   Image
+                  </code> 类型，可用于保存
+                        </p>
+                    </li>
+                    <li>
+                        使用
+                        <code>
+                  GetImageData(SaveTypes.GIF)
+                 </code> 返回二进制数组的图像形式，可用于显示
+                    </li>
+                    <li>
+                        可以使用Image的
+                        <code>
+                  Save()
+                 </code> 方法进行保存
+                    </li>
+                    <li>
+                        返回参数可以使用全局变量，或者使用
+                        <code>
+                  ref
+                 </code> 或者
+                        <code>
+                  out
+                 </code> 关键字
+                    </li>
+                </ul>
+                <p>
+                    <strong>
+                        各种格式的条形码规范（不全面，有兴趣的大家自行百度）
+                    </strong>
+                </p>
+                <pre><code>
+ISBN
+ISBN（国际标准书号）代码印在书籍上。这种格式不是一种单独的条形码类型。ISBN 代码的结构比较特殊，使用 EAN-13 条形码进行编码。此条形码由固定的三位国家/地区代码 978 构成，
+其后紧跟 10 位 ISBN 数字。第 10 位数字（或检查数字）被丢弃。请使用 x-xxxx-xxxx 格式输入数字。ISBN 代码必须为数字。
+ISSN
+ISSN（国际标准期刊号）代码印在杂志、报纸和其它期刊出版物上。这种格式不是一种单独的条形码类型。ISSN 是带有一个 977 国家/地区代码和一个两位数补充代码的 EAN-13 条形码。两位数补充代码包含期刊号。
+例如，一月 = 01，二月 = 02。请使用 xxxx-xxxx 格式输入数字。ISSN 代码必须为数字。
+             </code></pre>
+            </div>
+        </section>
+
+        <footer>
+            <div class="">
+                <p> &copy;LSGO学习信息发布平台</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

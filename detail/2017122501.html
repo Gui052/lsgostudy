@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2017-12-25-02</title>
+  <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
+  <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/markdown.css">
+  <link rel="stylesheet" href="css/prettify.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="container">
+        <h2 class="lone-header">生成各种条形码</h2>
+      </div>
+    </header>
+
+
+    <section>
+      <div class="docs-content">
+        <h2 id="_1">
+          机器学习任务之泰坦尼克存活预测:
+        </h2>
+        <h4 id="_2">
+          提示：此任务为
+          <code>
+                 癌症预测
+                </code> 的进阶版，完成此任务之前可先完成
+          <code>
+                 癌症预测
+                </code>
+        </h4>
+        <hr/>
+        <blockquote>
+          <p>
+            说明：需要进行简单的数据处理，以及使用多种机器学习方法进行效果比较。
+          </p>
+        </blockquote>
+        <p>
+          <strong>
+            <a href="" title="https://pan.baidu.com/s/1c15T4NA">
+              数据集：泰坦尼克数据集
+            </a>
+          </strong>
+        </p>
+        <blockquote>
+          <p>
+            数据集特征说明：
+            <br/> 第一列是标号（无用），第二列是标签，表示是否存活，其他列均为特征。
+          </p>
+        </blockquote>
+        <p>
+          <strong>
+            要求：对数据部分先进行预处理，然后调用不同的模块进行训练和预测，每种模块都使用交叉验证训练，得出最高的预测率(参数可以先保持默认，主要是数据处理和熟悉模块)。
+          </strong>
+        </p>
+        <p>
+          <strong>
+            提示：
+          </strong>
+          <br/> 1. 利用pandas模块，对csv文件进行操作，具体的操作方法自行百度，大概的处理方式包括舍弃无用的特征，填充缺失值，one-hot编码，特征的关联分析等等
+          <br/> 对于这个数据集初步处理具体如下：
+          <br/> 比如：
+        </p>
+        <blockquote>
+          <p>
+            对于第一列编号，它对于最终是否存活判断无效，所以选择删除这一列。
+            <br/> 对于第四列姓名，它对于最终是否存活影响无法具体判断，所以选择删除这一列。
+            <br/> 对于第五列Sex，由于不是数字，需要将其转化为数字，male可为1，female可为2。
+            <br/> 对于第六列Age,由于存在缺失值，需要将其缺失地方进行填充，可考虑填充平均值或中位数
+            <br/> 对于某一列数据较大，可能需要考虑归一化等等。
+            <br/> 其他列类似处理
+          </p>
+        </blockquote>
+        <p>
+          2.具体模块如下：
+        </p>
+        <ul>
+          <li>
+            svm
+          </li>
+        </ul>
+        <pre><code>
+from sklearn.svm import SVC, LinearSVC
+clf= SVC(C=1,kernel='rbf', degree=3, gamma='auto', coef0=0.0)
+clf.fit(x_tain, y_train)
+y_pre = clf.predict(x_test)
+             </code></pre>
+        <ul>
+          <li>
+            决策树
+          </li>
+        </ul>
+        <pre><code>
+from sklearn import tree
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(x_train,y_train)
+y_pre=clf.predict(x_test)
+             </code></pre>
+        <ul>
+          <li>
+            随机森林
+          </li>
+        </ul>
+        <pre><code>
+from sklearn.ensemble import RandomForestClassifier
+random_forest = RandomForestClassifier(n_estimators=100)
+random_forest.fit(x_train, y_train)
+y_pre = random_forest.predict(x_test)
+             </code></pre>
+        <ul>
+          <li>
+            逻辑回归
+          </li>
+        </ul>
+        <pre><code>
+from sklearn.linear_model import LogisticRegression
+logit=LogisticRegression()
+result=logit.fit(x_tain,y_train)
+y_pre=result.predict(x_test)
+             </code></pre>
+        <ul>
+          <li>
+            朴素贝叶斯
+          </li>
+        </ul>
+        <pre><code>
+from sklearn.naive_bayes import MultinomialNB  
+clf = MultinomialNB().fit(x_train, y_train)  
+doc_class_predicted = clf.predict(x_test)  
+             </code></pre>
+        <hr/>
+        <p>
+          最后说明：
+          <br/> 方法背后的原理大家可以实践之后再尝试一步一步去了解，同时关于类似的类别预测问题，其实就是分类问题，一般的步骤就是数据的预处理，模型的选用与调参。
+          <br/> 做完这个任务，大家可以去了解了解一下数据处理的方式和模型的参数作用了解。
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="">
+        <p> &copy;LSGO学习信息发布平台</p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
